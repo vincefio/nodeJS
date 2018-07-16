@@ -22,7 +22,11 @@ app.use(bodyParser.json({
 
 //home route using sendFile
 app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, 'view.html'))
+  res.sendFile(path.join(__dirname, 'public/view.html'))
+})
+
+app.get('/sell', function(req, res){
+  res.sendFile(path.join(__dirname, 'public/sell.html'))
 })
 
 //start server
