@@ -17,5 +17,13 @@ app.use(bodyParser.json({
   type: "application/vnd.api+json"
 }));
 
+//add some initial housing data to work with
+
+
+//home route using sendFile
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, 'view.html'))
+})
+
 //start server
 app.listen(PORT, () => console.log('listening on port ' + PORT))
