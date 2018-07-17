@@ -29,5 +29,9 @@ app.get('/sell', function(req, res){
   res.sendFile(path.join(__dirname, 'public/sell.html'))
 })
 
+app.post('/postSell', function(req, res){
+  res.json(req.body)
+})
+
 //start server
 app.listen(PORT, () => console.log('listening on port ' + PORT))
