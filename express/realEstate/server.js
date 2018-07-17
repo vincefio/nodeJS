@@ -30,6 +30,7 @@ app.get('/sell', function(req, res){
 })
 
 app.post('/postSell', function(req, res){
+  //console.log('filename ' + typeof req.body.filename)
   res.json(req.body)
 })
 
