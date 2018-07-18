@@ -29,11 +29,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/buy">Buy <span class="sr-only">(current)</span></a>
+      <li class="nav-item ">
+        <a class="nav-link" href="/buy">Buy </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/sell">Sell</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/sell">Sell <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
@@ -43,14 +43,17 @@
     </form>
   </div>
 </nav>
-<div class="jumbotron jumbotron-fluid text-center">
-  <div class="container">
-    <h1 class="display-4">Looking to Buy a House?</h1>
-    <p class="lead">Search our current listings or post your own!</p>
-    <h3>Happy Hunting!</h3>
-    <a href="/buy"><button type="button" class="btn btn-success">Buy</button></a>
-    <a href="/sell"><button type="button" href="/sell" class="btn btn-info">Sell</button></a>
-  </div>
+
+<%= typeof msg != 'undefined' ? msg : '' %>
+<form action="/postSell" method='POST' enctype="multipart/form-data">
+  <label for="price">Enter Price</label>
+  <input type="text" name="price"><br>
+  <input type="file" name="houseView" accept="image/gif, image/jpeg, image/png"><br><br>
+  <input type="submit" value="submit">
+</form>
+<br>
+<div class="container">
+  <img src="<%= typeof file != 'undefined' ? file : '' %>">
 </div>
 </body>
 </html>
