@@ -68,7 +68,6 @@ app.post('/postSell', function(req, res){
     if (err) {
       // An error occurred when uploading
       console.log('error muthafucka')
-      throw err;
       return
     }
     else{
