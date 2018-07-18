@@ -5,6 +5,23 @@ var bodyParser = require('body-parser')
 var mysql = require("mysql")
 var formidable = require('formidable')
 
+//set up multer
+var multer  = require('multer')
+
+//set storage engine
+const storage = multer.diskStorage({
+  destination: './uploads/',
+  filename: function(req, file, cb){
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+})
+
+//init upload
+const upload = multer({
+  storage: storage
+}).single('filename')
+
+
 //set up app
 var app = express()
 var PORT = 8080
@@ -47,30 +64,19 @@ app.get('/sell', function(req, res){
 })
 
 app.post('/postSell', function(req, res){
-  var form = new formidable.IncomingForm()
-
-  // store all uploads in the /uploads directory
-  form.uploadDir = path.join(__dirname, '/uploads');
-  // every time a file has been uploaded successfully,
-  // rename it to it's orignal name
-  form.on('file', function(field, file) {
-    fs.rename(file.path, path.join(form.uploadDir, file.name));
-  });
-
-  // log any errors that occur
-  form.on('error', function(err) {
-    console.log('An error has occured: \n' + err);
-  });
-
-  // once all the files have been uploaded, send a response to the client
-  form.on('end', function() {
-    res.end('success');
-  });
-
-  // parse the incoming request containing the form data
-  form.parse(req);
-
-  res.json(form)
+  upload(req, res, function (err) {
+    if (err) {
+      // An error occurred when uploading
+      console.log('error muthafucka')
+      throw err;
+      return
+    }
+    else{
+    // Everything went fine
+    console.log(req.file)
+    res.send('test')
+    }
+  })
 })
 
 //start server
