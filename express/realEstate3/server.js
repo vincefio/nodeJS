@@ -34,6 +34,21 @@ app.use(bodyParser.json({
   type: "application/vnd.api+json"
 }));
 
+//set up database connection
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'real_estate'
+});
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('mysql database running');
+});
+
 //ejs
 app.set('view engine', 'ejs')
 
@@ -45,13 +60,27 @@ app.get('/', (req, res) => res.render('index'))
 
 app.get('/sell', (req, res) => res.render('sell'))
 
+app.get('/buy', (req, res) => res.render('buy'))
+
 app.post('/postSell', (req, res) =>{
   upload(req, res, (err) => {
     //res.send('uploads/' + req.file.filename)
+    if(err){
+  res.render('sell', {
+    msg: err
+  });
+} else {
+  if(req.file == undefined){
     res.render('sell', {
-          msg: 'File Uploaded!',
-          file: `uploads/${req.file.filename}`
-        });
+      msg: 'Error: No File Selected!'
+    });
+  } else {
+  res.render('sell', {
+      msg: 'File Uploaded!',
+      file: `uploads/${req.file.filename}`
+    });
+  }
+}
   })
 })
 
