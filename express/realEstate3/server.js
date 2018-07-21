@@ -62,6 +62,25 @@ app.get('/sell', (req, res) => res.render('sell'))
 
 app.get('/buy', (req, res) => res.render('buy'))
 
+app.post('/getBuy', (req, res) => {
+  /*res.render('buy', {
+    msg: JSON.stringify(req.body)
+  })*/
+
+  connection.query(
+    'SELECT * FROM houses WHERE city = ? OR price <= ?',
+    [req.body.location, req.body.price],
+    function(err, results, fields){
+      if(err) throw err;
+      //console.log('house added!')
+      res.render('buy', {
+        msg: JSON.stringify(results)
+      })
+    }
+  )
+
+})
+
 app.post('/postSell', (req, res) =>{
   upload(req, res, (err) => {
     //res.send('uploads/' + req.file.filename)
