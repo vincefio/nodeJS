@@ -75,6 +75,16 @@ app.post('/postSell', (req, res) =>{
       msg: 'Error: No File Selected!'
     });
   } else {
+    //console.log('req body ' + JSON.stringify(req.body))
+    //console.log('req body ' + JSON.stringify(req.file))
+  connection.query(
+    'INSERT INTO houses(picture, city, price) VALUES (?,?,?)',
+    [req.file.filename, req.body.location, req.body.price],
+    function(err, results, fields){
+      if(err) throw err;
+      console.log('house added!')
+    }
+  )
   res.render('sell', {
       msg: 'File Uploaded!',
       file: `uploads/${req.file.filename}`
