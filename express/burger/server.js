@@ -22,19 +22,6 @@ app.set("view engine", "handlebars");
 var routes = require('./controllers/burgersController.js')
 app.use('/', routes)
 
-/*var burger = require('./models/burger')
-
-app.get("/", function(req, res) {
-  //res.send('route hit')
-  burger.all(function(data) {
-    var hbsObject = {
-      cats: data
-    };
-    console.log(hbsObject);
-    res.render('index');
-  });
-});*/
-
 app.listen(port, function(){
   console.log('app listening on ' + port)
 })
