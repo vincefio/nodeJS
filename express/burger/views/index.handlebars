@@ -1,1 +1,12 @@
-<h2>Add a Cat</h2>
+<div class='container'>
+  {{#each burgers}}
+    <h2>{{this.burger_name}}</h2>
+  {{/each}}
+</div>
+
+<div class="addBurger">
+  <form class="" action="/add" method="POST">
+    <textarea name="name" rows="4" cols="50"></textarea>
+    <button type="submit" name="button">Add Burger</button>
+  </form>
+</div>

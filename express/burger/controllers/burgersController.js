@@ -8,12 +8,15 @@ router.get("/", function(req, res) {
   //res.send('route hit')
   burger.all(function(data) {
     var hbsObject = {
-      cats: data
+      burgers: data
     };
     console.log(hbsObject);
-    res.render('index');
+    res.render('index', hbsObject);
   });
 });
 
+router.post('/add', function(req, res){
+  res.send('burger added')
+})
 
 module.exports = router;
