@@ -2,14 +2,24 @@
 
 <div class="flex-container">
   <div class='container1'>
+    <h2>Not Eaten</h2>
     {{#each burgers}}
       {{#unless this.devoured}}
-        <h2>{{this.burger_name}}</h2>
+        <h3 class="burgerName">{{this.burger_name}}</h3>
+        <form class="devourForm" action="/{{this.id}}?_method=PUT" method="post">
+          <input type="hidden" name="devoured" value="true">
+          <button type="submit">Devour</button>
+        </form><br>
       {{/unless}}
     {{/each}}
   </div>
   <div class="container2">
-
+    <h2>Eaten</h2>
+    {{#each burgers}}
+      {{#if this.devoured}}
+        <h3 class="devoureBurgerName">{{this.burger_name}}</h3>
+      {{/if}}
+    {{/each}}
   </div>
 </div>
 

@@ -20,3 +20,9 @@
 .title{
   text-align: center;
 }
+
+.devourForm, .burgerName {
+  display: inline-block;
+  margin: 5px;
+  margin-bottom: 10px;
+}

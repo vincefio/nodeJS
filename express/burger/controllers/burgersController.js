@@ -22,4 +22,10 @@ router.post('/add', function(req, res){
   })
 })
 
+router.put('/:id', function(req, res){
+  burger.update(req.params.id, function(data){
+    res.redirect('/')
+  })
+})
+
 module.exports = router;
