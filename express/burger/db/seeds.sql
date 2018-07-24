@@ -1,8 +1,8 @@
-INSERT INTO burgers(burger_name, devoured)
-VALUES('double cheesy', false);
+INSERT INTO burgers(burger_name)
+VALUES('double cheesy');
 
-INSERT INTO burgers(burger_name, devoured)
-VALUES('bacon single', false);
+INSERT INTO burgers(burger_name)
+VALUES('bacon single');
 
-INSERT INTO burgers(burger_name, devoured)
-VALUES('classic', false);
+INSERT INTO burgers(burger_name)
+VALUES('classic');

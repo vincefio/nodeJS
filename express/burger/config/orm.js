@@ -9,6 +9,14 @@ var orm = {
       }
       cb(result);
     })
+  },
+  add: function(name, cb){
+    connection.query('INSERT INTO burgers(burger_name) VALUES (?)', ['testy belesty'], function(err, result){
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    })
   }
 }
 

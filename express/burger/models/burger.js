@@ -6,6 +6,11 @@ var burger = {
     orm.all(function(res){
       cb(res)
     })
+  },
+  add: function(name, cb){
+    orm.add(name, function(res){
+      cb(res)
+    })
   }
 }
 

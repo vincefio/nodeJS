@@ -16,7 +16,10 @@ router.get("/", function(req, res) {
 });
 
 router.post('/add', function(req, res){
-  res.send('burger added')
+  //res.send(req.body)
+  burger.add(req.body.burgerName, function(data){
+    res.redirect('/')
+  })
 })
 
 module.exports = router;
