@@ -1,11 +1,20 @@
-<div class='container'>
-  {{#each burgers}}
-    <h2>{{this.burger_name}}</h2>
-  {{/each}}
+<h1 class="title">Eat The Burger</h1>
+
+<div class="flex-container">
+  <div class='container1'>
+    {{#each burgers}}
+      {{#unless this.devoured}}
+        <h2>{{this.burger_name}}</h2>
+      {{/unless}}
+    {{/each}}
+  </div>
+  <div class="container2">
+
+  </div>
 </div>
 
 <div class="addBurger">
-  <form class="" action="/add" method="POST">
+  <form class="submitForm" action="/add" method="POST">
     <textarea name="burgerName" rows="4" cols="50"></textarea>
     <button type="submit" name="button">Add Burger</button>
   </form>

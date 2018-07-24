@@ -1,0 +1,22 @@
+.flex-container {
+  display: flex;
+}
+
+.container1{
+  flex: 1;
+  text-align: center;
+}
+
+.container2{
+  flex: 1;
+  text-align: center;
+}
+
+.submitForm{
+  text-align: center;
+  margin-top: 25px;
+}
+
+.title{
+  text-align: center;
+}
