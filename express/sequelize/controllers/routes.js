@@ -18,7 +18,7 @@ module.exports = function(app){
 
     Guitar.findAll({}).then(results => {
       // projects will be an array of all Project instances
-      res.json(results)
+      return res.json(results)
     })
   })
 
