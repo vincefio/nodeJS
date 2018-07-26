@@ -1,0 +1,29 @@
+
+.flex-container {
+  display: flex;
+}
+
+.container1{
+  flex: 1;
+  text-align: center;
+}
+
+.container2{
+  flex: 1;
+  text-align: center;
+}
+
+.submitForm{
+
+  margin-top: 25px;
+}
+
+.title{
+  text-align: center;
+}
+
+.devourForm, .burgerName {
+  display: inline-block;
+  margin: 5px;
+  margin-bottom: 10px;
+}
