@@ -4,6 +4,6 @@ $('#seeMore').on('click', function(event){
   $.get('/guitars', function(data){
     console.log('data is ' + JSON.stringify(data))
 
-    
+
   })
 })

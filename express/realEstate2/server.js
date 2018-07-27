@@ -10,7 +10,7 @@ var multer  = require('multer')
 
 //set storage engine
 const storage = multer.diskStorage({
-  destination: '.public/uploads/',
+  destination: './public/uploads/',
   filename: function(req, file, cb){
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
   }
@@ -62,7 +62,7 @@ app.post('/postSell', (req, res) => {
       } else{
         res.render('sell', {
           msg: 'File Uploaded!',
-          file: `uploads/${req.file.filename}`
+          //file: `uploads/${req.file.filename}`
         });
       }
     }

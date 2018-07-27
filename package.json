@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vincefio/nodeJS/issues"
   },
-  "homepage": "https://github.com/vincefio/nodeJS#readme"
+  "homepage": "https://github.com/vincefio/nodeJS#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
